@@ -15,12 +15,15 @@ controller.list = (req, res) => {
 
 controller.save = (req, res) => {
     const data = req.body;
+        // Verificar si algún campo requerido está vacío
+    if (!data.CompanyName || !data.ContactName || !data.ContactTitle || !data.Address || !data.City || !data.Region || !data.PostalCode || !data.Country || !data.Phone || !data.Fax || !data.totalordenes) {
+        return res.status(400).redirect('/'); // Redirigir al formulario con un código de estado 400 (Bad Request)
+    }
     try {   
         req.getConnection((err, conn) => {
             if (err) {
                 throw err;
             }
-
             conn.query('INSERT INTO customers  set ?', [data], (err, customers) => {
                 if (err) {
                     console.log('Error al guardar el cliente: ', err);
@@ -50,6 +53,16 @@ controller.edit = (req, res) => {
 controller.update = (req, res) => {
     const customerId = req.params.id;
     const newCustomer = req.body;
+
+    // Verificar si algún campo requerido está vacío
+    if (!newCustomer.CompanyName || !newCustomer.ContactName || 
+        !newCustomer.ContactTitle || !newCustomer.Address || 
+        !newCustomer.City || !newCustomer.Region || !newCustomer.PostalCode || 
+        !newCustomer.Country || !newCustomer.Phone || !newCustomer.Fax || 
+        !newCustomer.totalordenes) {
+        return res.status(400).redirect('/'); // Redirigir al formulario con un código de estado 400 (Bad Request)
+    }
+
     try {
         req.getConnection((err, conn) => {
             if (err) {
