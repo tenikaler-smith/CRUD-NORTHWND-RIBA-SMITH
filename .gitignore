@@ -1,0 +1,21 @@
+# Ignorar directorios generados por npm o Yarn
+node_modules/
+dist/
+
+# Ignorar archivos de configuración local
+.env
+
+# Ignorar archivos de registro
+logs/
+
+# Ignorar archivos de respaldo o temporales
+*.log
+*.swp
+
+# Ignorar archivos de dependencias específicos de tu entorno de desarrollo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de compilación o construcción
+build/
+public/build/

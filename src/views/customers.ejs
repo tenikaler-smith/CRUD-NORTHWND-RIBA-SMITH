@@ -1,0 +1,111 @@
+<%- include("partials/header") %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="card">
+            <div class="card-body">
+                <form action="/add" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="CompanyName" class="form-control" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="ContactName" class="form-control" placeholder="Contact Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="ContactTitle" class="form-control" placeholder="Contact Title">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Address" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="City" class="form-control" placeholder="City">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="Region" class="form-control" placeholder="Region">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="PostalCode" class="form-control" placeholder="Postal Code">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Country" class="form-control" placeholder="Country">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Phone" class="form-control" placeholder="Phone" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Fax" class="form-control" placeholder="Fax">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="totalordenes" class="form-control" placeholder="Total Ordenes">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center"> 
+                        <button  type="submit" class="btn btn-primary">Save Customer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Company Name</th>
+                    <th>Contact Name</th>
+                    <th>Contact Title</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal Code</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Total Ordenes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (data){ %>
+                    <% for (var i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td> <%= 1+i %> </td>
+                            <td> <%= data[i].CompanyName %> </td>
+                            <td> <%= data[i].ContactName %> </td>
+                            <td> <%= data[i].ContactTitle %> </td>
+                            <td> <%= data[i].Address %> </td>
+                            <td> <%= data[i].City %> </td>
+                            <td> <%= data[i].Region %> </td>
+                            <td> <%= data[i].PostalCode %> </td>
+                            <td> <%= data[i].Country %> </td>
+                            <td> <%= data[i].Phone %> </td>
+                            <td> <%= data[i].Fax %> </td>
+                            <td> <%= data[i].totalordenes %> </td>
+                            <td>
+                                <a href="/update/<%= data[i].CustomerID %>" class="btn btn-outline-warning">Edit</a>
+                                <a href="/delete/<%= data[i].CustomerID %>" class="btn btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<%- include("partials/footer") %>

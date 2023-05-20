@@ -1,0 +1,60 @@
+<%- include("partials/header") %>
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="card">
+            <div class="card-body">
+                <form action="/update/<%= data.CustomerID %>" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="CompanyName" value="<%= data.CompanyName %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="ContactName" value="<%= data.ContactName %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="ContactTitle" value="<%= data.ContactTitle %>" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Address" value="<%= data.Address %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="City" value="<%= data.City %>" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="Region" value="<%= data.Region %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="PostalCode" value="<%= data.PostalCode %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Country" value="<%= data.Country %>" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Phone" value="<%= data.Phone %>" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="Fax" value="<%= data.Fax %>" class="form-control" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="totalordenes" value="<%= data.totalordenes %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center"> 
+                        <button  type="submit" class="btn btn-primary">Update Customer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer") %>
